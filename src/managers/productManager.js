@@ -91,12 +91,12 @@ export default class ProductManager {
       const productos = await this.getProductos();
       const indexOfProducto = productos.findIndex((p) => p.id === id);
       if (indexOfProducto === -1) {
-        return `No se encuentra el producto : ${producto.id}`;
+        return `No se encuentra el producto : ${id}`;
       }
 
       productos[indexOfProducto] = {
-        ...productoUpdate,
-        ...producto,
+        ...productos[indexOfProducto],
+        ...updatedProducto,
       };
 
       await fs.promises.writeFile(

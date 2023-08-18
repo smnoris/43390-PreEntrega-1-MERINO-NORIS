@@ -56,7 +56,7 @@ router.put("/:pid", async (req, res) => {
 router.delete("/:pid", async (req, res) => {
   const id = parseInt(req.params.pid);
   const producto = await manager.deleteProducto(id);
-  if (producto === `Can't find product with id : ${id}`) {
+  if (producto === `No se encuentra el producto con id: ${id}`) {
     res.status(400).json({ message: "Error al eliminar el producto", producto });
   } else if (producto) {
     res.status(200).json({ message: "Producto eliminado", producto });
